@@ -1,0 +1,6 @@
+flask
+joblib
+scikit-learn
+pdfplumber
+python-docx
+gunicorn
