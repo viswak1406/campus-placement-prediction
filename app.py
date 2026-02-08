@@ -113,3 +113,18 @@ def predict():
         # ---------- SUCCESS RESPONSE ----------
         return render_template(
             "result.html",
+            result=result,
+            tips=tips,
+            resume_tips=resume_tips
+        )
+
+    # ---------- GLOBAL SAFETY NET ----------
+    except Exception as e:
+        print("❌ PREDICT ROUTE ERROR:", e)
+        return "Internal error while processing prediction. Check logs."
+
+
+# ---------- APP START ----------
+if __name__ == "__main__":
+    app.run(debug=False)
+
