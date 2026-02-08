@@ -112,7 +112,7 @@ def predict():
 
         # ---------- SUCCESS RESPONSE ----------
         return render_template(
-            "result.html",
+            "results.html",
             result=result,
             tips=tips,
             resume_tips=resume_tips
@@ -127,4 +127,5 @@ def predict():
 # ---------- APP START ----------
 if __name__ == "__main__":
     app.run(debug=False)
+
 
