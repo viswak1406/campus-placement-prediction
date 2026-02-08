@@ -71,9 +71,9 @@ def predict():
     file = request.files.get("resume")
 
     if file and file.filename != "":
-        filename = secure_filename(file.uploads)
+        filename = secure_filename(file.filename)
         filepath = os.path.join(UPLOAD_FOLDER, filename)
-        file.save(uploads)
+        file.save(filepath)
 
         resume_text = extract_resume_text(filepath)
 
@@ -96,4 +96,5 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=False)
+
 
