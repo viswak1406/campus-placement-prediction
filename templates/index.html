@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Placement Predictor</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            width: 420px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        h2, p {
+            text-align: center;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type=range] {
+            padding: 0;
+        }
+        .range-value {
+            text-align: right;
+            font-size: 12px;
+            color: #555;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🎓 Placement Predictor</h2>
+    <p>Check your placement readiness</p>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+
+        <label>CGPA</label>
+        <input type="number" name="cgpa" step="0.1" min="0" max="10" required>
+
+        <label>Internship Experience</label>
+        <select name="internships" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label>Number of Projects</label>
+        <input type="number" name="projects" min="0" required>
+
+        <label>Technical Skills Count</label>
+        <input type="number" name="skills" min="0" required>
+
+        <label>Communication Skill</label>
+        <input type="range" name="communication" min="1" max="5" value="3"
+               oninput="comm.value=this.value">
+        <div class="range-value">Level: <output id="comm">3</output>/5</div>
+
+        <label>Number of Backlogs</label>
+        <input type="number" name="backlogs" min="0" required>
+
+        <label>Aptitude Score</label>
+        <input type="range" name="aptitude" min="0" max="100" value="50"
+               oninput="apt.value=this.value">
+        <div class="range-value">Score: <output id="apt">50</output>/100</div>
+
+        <label>Upload Resume (PDF / DOCX)</label>
+        <input type="file" name="resume" accept=".pdf,.docx">
+
+        <button type="submit">🔍 Predict Placement</button>
+    </form>
+</div>
+
+</body>
+</html>
